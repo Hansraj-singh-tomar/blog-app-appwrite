@@ -7,11 +7,13 @@ const App = () => {
   return (
     <div>
       <Header />
-      <main>
-        <Outlet />
-      </main>
+      <Outlet />
     </div>
   )
 }
 
 export default App
+
+
+// why this attraction has no end and how it will end and all that
+// 

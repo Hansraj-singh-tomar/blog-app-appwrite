@@ -1,6 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
 import { Link } from 'react-router-dom'
+import authService from '../appwrite/auth'
+import { useDispatch } from 'react-redux'
+import { logout } from '../store/authSlice'
 
 const navigation = [
     {
@@ -30,7 +33,15 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
+
+
 const Header = () => {
+    const dispatch = useDispatch();
+
+    function logoutHandler() {
+        authService.logout().then(() => dispatch(logout));
+    }
+
     return (
         <div className="min-h-full">
             {/* header section */}
@@ -62,6 +73,7 @@ const Header = () => {
                                     {item.name}
                                 </Link>
                             ))}
+                            <button onClick={logoutHandler} className='text-white'>Logout</button>
                         </div>
                     </div>
                 </div>
@@ -71,3 +83,4 @@ const Header = () => {
 }
 
 export default Header
+

@@ -6,20 +6,20 @@ export class AuthService {
     account;
 
     constructor() {
-        this.client.setEndpoint(conf.appwriteUrl);
-        this.client.setProject(conf.appwriteProjectId);
+        this.client
+            .setEndpoint(conf.appwriteUrl)
+            .setProject(conf.appwriteProjectId);
         this.account = new Account(this.client);
     }
 
-    async createAccount({ email, password, name }) {
+    async createAccount({ name, email, password }) {
         // eslint-disable-next-line no-useless-catch
         try {
             const userAccount = await this.account.create(ID.unique(), email, password, name);
             if (userAccount) {
                 // call here login method
-                this.login({ email, password })
-            } else {
-                return userAccount;
+                // return this.login({ email, password })
+                return userAccount
             }
         } catch (error) {
             throw error;
