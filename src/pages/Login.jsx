@@ -5,7 +5,9 @@ import Button from '../components/Button';
 import authService from '../appwrite/auth';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { login } from '../store/authSlice';
+import { login as authLogin } from '../store/authSlice';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -24,14 +26,36 @@ const Login = () => {
         if (isLoginForm) {
             try {
                 const session = await authService.login({ email: emailRef.current.value, password: passwordRef.current.value });
-                console.log(session);
+                console.log("from login/sign up page", session);
                 if (session) {
                     const userData = await authService.getCurrentUser()
-                    dispatch(login(userData));
-                    navigate("/all-posts")
+                    if (userData) dispatch(authLogin(userData));
+                    navigate("/")
+                    toast.success('🦄 login successful!', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+
+                    });
                 }
             } catch (error) {
                 setError(error.message);
+                toast.warn('🦄 login unsuccessful!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+
+                });
             }
         } else {
             try {
@@ -40,12 +64,35 @@ const Login = () => {
                 if (userData) {
                     const userData = await authService.getCurrentUser();
                     if (userData) {
-                        dispatch(login(userData))
+                        dispatch(authLogin(userData))
                     }
-                    navigate("/all-posts")
+                    navigate("/")
+
+                    toast.success('🦄 user registered successfull!', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+
+                    });
                 }
             } catch (error) {
                 setError(error.message);
+                toast.warn('🦄 user registration failed!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+
+                });
             }
         }
     }
@@ -96,6 +143,9 @@ const Login = () => {
                     </div>
                 </main>
             </div>
+            <ToastContainer
+
+            />
         </>
     )
 }

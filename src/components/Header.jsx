@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import authService from '../appwrite/auth'
 import { useDispatch } from 'react-redux'
 import { logout } from '../store/authSlice'
+import { toast, ToastContainer } from 'react-toastify'
 
 const navigation = [
     {
@@ -39,7 +40,8 @@ const Header = () => {
     const dispatch = useDispatch();
 
     function logoutHandler() {
-        authService.logout().then(() => dispatch(logout));
+        authService.logout().then(() => dispatch(logout()));
+        toast("user logout")
     }
 
     return (
@@ -78,6 +80,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 }

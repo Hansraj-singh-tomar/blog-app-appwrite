@@ -38,7 +38,7 @@ export class AuthService {
     async logout() {
         // eslint-disable-next-line no-useless-catch
         try {
-            await this.account.deleteSession()
+            await this.account.deleteSessions()
         } catch (error) {
             throw error
         }
