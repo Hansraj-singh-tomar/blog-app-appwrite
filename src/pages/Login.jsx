@@ -26,7 +26,7 @@ const Login = () => {
         if (isLoginForm) {
             try {
                 const session = await authService.login({ email: emailRef.current.value, password: passwordRef.current.value });
-                console.log("from login/sign up page", session);
+                // console.log("from login/sign up page", session);
                 if (session) {
                     const userData = await authService.getCurrentUser()
                     if (userData) dispatch(authLogin(userData));
@@ -118,7 +118,7 @@ const Login = () => {
                                 <form className="space-y-6" onSubmit={handleLogin}>
                                     {
                                         !isLoginForm && (
-                                            <Input ref={nameRef} label="Fill Name" type="text" className="" />
+                                            <Input ref={nameRef} label="Full Name" type="text" className="" />
                                         )
                                     }
 
@@ -143,9 +143,7 @@ const Login = () => {
                     </div>
                 </main>
             </div>
-            <ToastContainer
-
-            />
+            <ToastContainer />
         </>
     )
 }
