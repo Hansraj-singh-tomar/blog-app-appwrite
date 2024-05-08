@@ -28,34 +28,12 @@ const Login = () => {
                 const session = await authService.login({ email: emailRef.current.value, password: passwordRef.current.value });
                 // console.log("from login/sign up page", session);
                 if (session) {
+                    navigate("/");
                     const userData = await authService.getCurrentUser()
                     if (userData) dispatch(authLogin(userData));
-                    navigate("/")
-                    toast.success('🦄 login successful!', {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "dark",
-
-                    });
                 }
             } catch (error) {
                 setError(error.message);
-                toast.warn('🦄 login unsuccessful!', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-
-                });
             }
         } else {
             try {
@@ -66,35 +44,12 @@ const Login = () => {
                     if (userData) {
                         dispatch(authLogin(userData))
                     }
-                    navigate("/")
-
-                    toast.success('🦄 user registered successfull!', {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "dark",
-
-                    });
                 }
             } catch (error) {
                 setError(error.message);
-                toast.warn('🦄 user registration failed!', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-
-                });
             }
         }
+
     }
 
     if (error) return <h1 className='text-center'>{error}</h1>
@@ -149,4 +104,15 @@ const Login = () => {
 }
 
 export default Login
+
+// toast.success('🦄 login successful!', {
+//     position: "top-right",
+//     autoClose: 5000,
+//     hideProgressBar: false,
+//     closeOnClick: true,
+//     pauseOnHover: true,
+//     draggable: true,
+//     progress: undefined,
+//     theme: "dark",
+// });
 

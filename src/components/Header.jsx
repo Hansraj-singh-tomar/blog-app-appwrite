@@ -2,7 +2,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import authService from '../appwrite/auth'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../store/authSlice'
 import { toast, ToastContainer } from 'react-toastify'
 
@@ -13,14 +13,9 @@ const navigation = [
         active: "true",
     },
     {
-        name: "Login/Sign up",
-        slug: "/login",
-        active: "false",
-    },
-    {
         name: "All Posts",
         slug: "/all-posts",
-        active: "false",
+        active: "true",
     },
     {
         name: "Add Post",
@@ -29,15 +24,14 @@ const navigation = [
     },
 ]
 
-
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-
-
 const Header = () => {
     const dispatch = useDispatch();
+
+    const userData = useSelector((state) => state.auth.userData);
 
     function logoutHandler() {
         authService.logout().then(() => dispatch(logout()));
@@ -45,17 +39,17 @@ const Header = () => {
     }
 
     return (
-        <div className="min-h-full">
+        <div className="min-h-full ">
             {/* header section */}
             <div className="bg-gray-800">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex h-20 items-center justify-between">
                     <div className="flex-shrink-0 flex">
                         <img
-                            className="h-8 w-8"
+                            className="h-10 w-10"
                             src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                             alt="Your Company"
                         />
-                        <p className='bg-gray-900 ml-4 text-white rounded-md px-3 py-2 text-sm font-medium'>Blog App</p>
+                        <p className='bg-gray-900 ml-4 text-white rounded-md px-3 py-2 text-xl font-medium'>Blog App</p>
                     </div>
 
                     <div className="hidden md:block">
@@ -68,14 +62,21 @@ const Header = () => {
                                         item.current
                                             ? 'bg-gray-900 text-white'
                                             : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                        'rounded-md px-3 py-2 text-sm font-medium'
+                                        'rounded-md px-3 py-2 text-xl font-medium'
                                     )}
                                     aria-current={item.current ? 'page' : undefined}
                                 >
                                     {item.name}
                                 </Link>
                             ))}
-                            <button onClick={logoutHandler} className='text-white'>Logout</button>
+                            {
+                                userData == null ?
+                                    <Link to={"/login"}>
+                                        <button className='rounded-md px-3 py-2 text-xl font-medium hover:bg-gray-700 hover: text-white'>Login/Signup</button>
+                                    </Link>
+                                    :
+                                    <button onClick={logoutHandler} className='rounded-md px-3 py-2 text-xl font-medium hover:bg-gray-700 hover: text-white'>Logout</button>
+                            }
                         </div>
                     </div>
                 </div>

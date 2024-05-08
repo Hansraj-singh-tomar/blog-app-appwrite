@@ -4,7 +4,7 @@ import { Editor } from '@tinymce/tinymce-react';
 
 
 // eslint-disable-next-line react/prop-types
-const RTE = ({ label, onInit, log }) => {
+const RTE = ({ label, onInit, defaultValue }) => {
     const id = useId()
     return (
         <div>
@@ -16,10 +16,10 @@ const RTE = ({ label, onInit, log }) => {
                     apiKey='vsmeprt5a8q0cxhafjaak6yt0bygjfy6o1cr7gwiqay3vgvx'
                     // onInit={(_evt, editor) => editorRef.current = editor}
                     onInit={(_evt, editor) => onInit(editor)}
-                    initialValue="<p>This is the initial content of the editor.</p>"
+                    initialValue={defaultValue}
                     init={{
                         height: 500,
-                        menubar: false,
+                        menubar: true,
                         plugins: [
                             'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
                             'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
@@ -32,7 +32,6 @@ const RTE = ({ label, onInit, log }) => {
                         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                     }}
                 />
-                <button className='border-2 border-black px-2 mt-2' onClick={log}>Log editor content</button>
             </div>
         </div>
     )

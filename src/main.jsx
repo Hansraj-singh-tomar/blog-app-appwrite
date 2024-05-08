@@ -13,6 +13,7 @@ import { Provider } from 'react-redux'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import AuthLayout from './components/AuthLayout.jsx'
+import EditPost from './pages/EditPost.jsx'
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,15 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: "/post",
+        path: "/edit-post/:slug",
+        element: (
+          <AuthLayout authentication>
+            <EditPost />
+          </AuthLayout>
+        )
+      },
+      {
+        path: "/post/:slug",
         element: <Post />
       },
     ]
