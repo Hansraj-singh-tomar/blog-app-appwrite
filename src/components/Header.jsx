@@ -45,13 +45,18 @@ const Header = () => {
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex h-20 items-center justify-between">
                     <div className="flex-shrink-0 flex">
                         <img
-                            className="h-10 w-10"
+                            className="h-12 w-12"
                             src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                             alt="Your Company"
                         />
-                        <p className='bg-gray-900 ml-4 text-white rounded-md px-3 py-2 text-xl font-medium'>Blog App</p>
+                        <p className='bg-gray-900 ml-4 text-white rounded-md px-3 py-2 text-lg font-medium'>Blog App</p>
                     </div>
 
+                    <div className='md:hidden text-white hover:text-gray-300 cursor-pointer'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                        </svg>
+                    </div>
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-4">
                             {navigation?.map((item) => (

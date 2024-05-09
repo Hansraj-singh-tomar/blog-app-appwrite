@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect } from 'react'
 import Header from './components/Header'
+import Footer from './pages/Footer'
 import { Outlet } from 'react-router-dom'
 import authService from './appwrite/auth'
 import { useDispatch } from 'react-redux'
@@ -24,6 +25,7 @@ const App = () => {
     <div>
       <Header />
       <Outlet />
+      <Footer />
     </div>
   )
 }

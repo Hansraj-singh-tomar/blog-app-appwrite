@@ -42,7 +42,7 @@ const Post = () => {
 
 
     return post ? (
-        <div className='mx-auto max-w-5xl mt-2 p-4'>
+        <div className='mx-auto max-w-6xl mt-2 p-4'>
             <div className='w-full flex justify-center mb-4 relative border rounded-xl p-2'>
                 <img
                     className='rounded-xl w-full h-[450px]'
@@ -54,7 +54,7 @@ const Post = () => {
                     isAuthor && (
                         <div className="absolute right-6 top-6 flex gap-2">
                             <Link to={`/edit-post/${post.$id}`}>
-                                <Button className={"bg-gray-800"}>
+                                <Button bgColor='bg-green-500'>
                                     Edit
                                 </Button>
                             </Link>
@@ -65,10 +65,12 @@ const Post = () => {
                     )
                 }
             </div>
-            <div>
-                <h1 className='text-2xl font-bold'>{post.title}</h1>
-                <div className='py-6'>
-                    {parse(post.content)}
+            <div className='flex justify-center'>
+                <div className='max-w-5xl'>
+                    <h1 className='text-2xl font-bold'>{post.title}</h1>
+                    <div className='py-6'>
+                        {parse(post.content)}
+                    </div>
                 </div>
             </div>
         </div>

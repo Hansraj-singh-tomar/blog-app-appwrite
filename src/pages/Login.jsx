@@ -6,7 +6,7 @@ import authService from '../appwrite/auth';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login as authLogin } from '../store/authSlice';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
@@ -15,6 +15,7 @@ const Login = () => {
 
     const [isLoginForm, setIsLoginForm] = useState(false);
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
     let nameRef = useRef(null);
     let emailRef = useRef(null);
@@ -22,24 +23,31 @@ const Login = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-
         if (isLoginForm) {
+            setLoading(true)
             try {
                 const session = await authService.login({ email: emailRef.current.value, password: passwordRef.current.value });
-                // console.log("from login/sign up page", session);
+                // console.log("from login page", session);
                 if (session) {
                     navigate("/");
                     const userData = await authService.getCurrentUser()
                     if (userData) dispatch(authLogin(userData));
+                    setLoading(false)
                 }
             } catch (error) {
                 setError(error.message);
+                setLoading(false)
+            } finally {
+                setLoading(false)
             }
         } else {
+            setLoading(true)
             try {
                 const userData = await authService.createAccount({ name: nameRef.current.value, email: emailRef.current.value, password: passwordRef.current.value })
-                console.log(userData);
+                // console.log("from sign up page", userData);
                 if (userData) {
+                    setLoading(false)
+                    navigate("/")
                     const userData = await authService.getCurrentUser();
                     if (userData) {
                         dispatch(authLogin(userData))
@@ -47,6 +55,8 @@ const Login = () => {
                 }
             } catch (error) {
                 setError(error.message);
+            } finally {
+                setLoading(false);
             }
         }
 
@@ -82,9 +92,18 @@ const Login = () => {
                                     <Input ref={passwordRef} label="Password" type="password" className="" autoComplete="current-password" />
 
                                     <div>
-                                        <Button>
-                                            {isLoginForm ? "Sign in" : "Sign up"}
-                                        </Button>
+                                        {
+                                            isLoginForm ? (
+                                                <Button type='submit'>
+                                                    {loading ? 'Logging...' : 'Sign In'}
+                                                </Button>
+                                            ) : (
+                                                <Button type='submit'>
+                                                    {loading ? 'Signing up...' : 'Sign Up'}
+                                                </Button>
+                                            )
+                                        }
+
                                     </div>
                                 </form>
 
@@ -98,7 +117,7 @@ const Login = () => {
                     </div>
                 </main>
             </div>
-            <ToastContainer />
+            {/* <ToastContainer /> */}
         </>
     )
 }
@@ -115,4 +134,6 @@ export default Login
 //     progress: undefined,
 //     theme: "dark",
 // });
+
+
 

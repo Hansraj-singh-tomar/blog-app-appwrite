@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react'
 import service from '../appwrite/config';
 import { Link } from 'react-router-dom';
+import Button from './Button';
 
 // eslint-disable-next-line react/prop-types
 const PostCard = ({ $id, title, featuredImage }) => {
@@ -25,6 +26,7 @@ const PostCard = ({ $id, title, featuredImage }) => {
                         <h3 className="text-lg font-semibold">
                             {title}
                         </h3>
+                        <Button className='mt-2'>Read More</Button>
                     </div>
                 </div>
             </Link>
@@ -32,5 +34,5 @@ const PostCard = ({ $id, title, featuredImage }) => {
     )
 }
 
-export default PostCard
+export default React.memo(PostCard)
 
