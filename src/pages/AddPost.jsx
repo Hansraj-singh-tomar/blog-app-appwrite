@@ -5,7 +5,9 @@ import Input from '../components/Input'
 import Button from '../components/Button'
 import Select from '../components/Select'
 import RTE from '../components/RTE'
-import appwriteService from "../appwrite/config"
+
+import service from "../appwrite/config"
+
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -69,13 +71,13 @@ const AddPost = ({ post }) => {
         if (post) {
             try {
                 setLoading(true);
-                const file = data.image ? await appwriteService.uploadFile(data.image) : null;
+                const file = data.image ? await service.uploadFile(data.image) : null;
 
                 if (file) {
-                    appwriteService.deleteFile(post.featuredImage);
+                    service.deleteFile(post.featuredImage);
                 }
 
-                const dbPost = await appwriteService.updatePost(post.$id, {
+                const dbPost = await service.updatePost(post.$id, {
                     ...data,
                     featuredImage: file ? file.$id : undefined,
                 });
@@ -91,13 +93,14 @@ const AddPost = ({ post }) => {
         } else {
             try {
                 setLoading(true)
-                const file = await appwriteService.uploadFile(data.image);
+                const file = await service.uploadFile(data?.image);
+                console.log("image file", file);
 
                 if (file) {
                     const fileId = file.$id;
                     data.featuredImage = fileId;
 
-                    const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id })
+                    const dbPost = await service.createPost({ ...data, userId: userData.$id })
 
                     if (dbPost) {
                         setLoading(false)
@@ -175,10 +178,6 @@ const AddPost = ({ post }) => {
                                 {loading ? "loading" : "Submit"}
                             </Button>
                     }
-
-                    {/* <Button type={'submit'} bgColor={post && "bg-green-500"}>
-                        {post ? loading ? "loading..." : "Update" : loading ? "loading..." : "Submit"}
-                    </Button> */}
                 </div>
             </form>
         </div>

@@ -108,7 +108,7 @@ const Login = () => {
                                 </form>
 
                                 <div className="mt-10 text-center text-sm text-gray-500">
-                                    <p onClick={() => setIsLoginForm(!isLoginForm)} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 cursor-pointer">
+                                    <p onClick={() => setIsLoginForm(!isLoginForm)} className="font-semibold text-lg leading-6 text-indigo-600 hover:text-indigo-500 cursor-pointer">
                                         {isLoginForm ? "Not a member? Sign Up Now" : "Already registered? Sign In Now."}
                                     </p>
                                 </div>

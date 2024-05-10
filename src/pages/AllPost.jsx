@@ -1,31 +1,19 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react'
 import PostCard from '../components/PostCard'
-import service from '../appwrite/config';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ShimmerSimpleGallery } from "react-shimmer-effects";
+import { fetchPosts } from '../store/postSlice';
 
 const AllPost = () => {
-    const [posts, setPosts] = useState([]);
-    const [error, setError] = useState('');
+    const dispatch = useDispatch();
+    const { posts, error } = useSelector((state) => state.postsData)
     const userData = useSelector((state) => state.auth.userData);
 
-    async function fetchPosts() {
-        try {
-            if (userData !== null) {
-                service.getPosts().then((posts) => {
-                    if (posts) {
-                        setPosts(posts.documents)
-                    }
-                })
-            }
-        } catch (error) {
-            setError(error)
-        }
-    }
-
     useEffect(() => {
-        fetchPosts();
+        if (userData !== null) {
+            dispatch(fetchPosts())
+        }
     }, [])
 
     if (error) return <h1>{error}</h1>

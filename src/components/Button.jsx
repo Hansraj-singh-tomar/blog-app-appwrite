@@ -7,7 +7,7 @@ const Button = ({ type = "button", bgColor = "bg-indigo-600", textColor = "text-
         <button
             type={type}
             onClick={onClick}
-            className={`flex w-full justify-center rounded-md px-4 py-1.5 text-sm font-semibold leading-6 ${bgColor} ${textColor} shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${className}`}
+            className={`flex w-full justify-center rounded-md px-4 py-1.5 text-lg font-semibold leading-6 ${bgColor} ${textColor} shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${className}`}
         >
             {children}
         </button>
