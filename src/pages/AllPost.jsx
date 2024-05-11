@@ -16,7 +16,15 @@ const AllPost = () => {
         }
     }, [])
 
-    if (error) return <h1>{error}</h1>
+
+    if (error) {
+        return (
+            <div className='h-screen mt-32'>
+                <h1 className='text-center text-2xl text-red-600 font-bold'>{error}</h1>
+            </div>
+        )
+    }
+
 
     if (posts.length === 0) {
         return (

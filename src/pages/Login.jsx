@@ -62,7 +62,13 @@ const Login = () => {
 
     }
 
-    if (error) return <h1 className='text-center'>{error}</h1>
+    // if (error) {
+    //     return (
+    //         <div className='h-screen mt-32'>
+    //             <h1 className='text-center text-2xl text-red-600 font-bold'>{error}</h1>
+    //         </div>
+    //     )
+    // }
 
     return (
         <>
@@ -79,7 +85,9 @@ const Login = () => {
                                 </h2>
                             </div>
 
-                            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+
+                            <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
+                                {error && <h1 className='my-4 text-center text-sm text-red-600'>{error}</h1>}
                                 <form className="space-y-6" onSubmit={handleLogin}>
                                     {
                                         !isLoginForm && (
@@ -107,8 +115,8 @@ const Login = () => {
                                     </div>
                                 </form>
 
-                                <div className="mt-10 text-center text-sm text-gray-500">
-                                    <p onClick={() => setIsLoginForm(!isLoginForm)} className="font-semibold text-lg leading-6 text-indigo-600 hover:text-indigo-500 cursor-pointer">
+                                <div className="my-7 text-center text-sm text-gray-500">
+                                    <p onClick={() => setIsLoginForm(!isLoginForm)} className="font-semibold text-sm leading-6 text-indigo-600 hover:text-indigo-500 cursor-pointer">
                                         {isLoginForm ? "Not a member? Sign Up Now" : "Already registered? Sign In Now."}
                                     </p>
                                 </div>
@@ -137,3 +145,4 @@ export default Login
 
 
 
+// < h1 className = 'text-center' > { error }</ >
