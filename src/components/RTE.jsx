@@ -14,7 +14,7 @@ const RTE = ({ label, onInit, defaultValue }) => {
             </label>
             <div className="mt-2">
                 <Editor
-                    apiKey={conf.tinyMceApiKey}
+                    apiKey='vsmeprt5a8q0cxhafjaak6yt0bygjfy6o1cr7gwiqay3vgvx'
                     // onInit={(_evt, editor) => editorRef.current = editor}
                     onInit={(_evt, editor) => onInit(editor)}
                     initialValue={defaultValue}
