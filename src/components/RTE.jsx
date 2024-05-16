@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useId } from 'react'
 import { Editor } from '@tinymce/tinymce-react';
+import conf from '../conf/conf';
 
 
 // eslint-disable-next-line react/prop-types
@@ -13,7 +14,7 @@ const RTE = ({ label, onInit, defaultValue }) => {
             </label>
             <div className="mt-2">
                 <Editor
-                    apiKey='vsmeprt5a8q0cxhafjaak6yt0bygjfy6o1cr7gwiqay3vgvx'
+                    apiKey={conf.tinyMceApiKey}
                     // onInit={(_evt, editor) => editorRef.current = editor}
                     onInit={(_evt, editor) => onInit(editor)}
                     initialValue={defaultValue}
