@@ -45,7 +45,7 @@ const Post = () => {
         <div className='mx-auto max-w-6xl mt-2 p-4'>
             <div className='w-full flex justify-center mb-4 relative border rounded-xl p-2'>
                 <img
-                    className='rounded-xl w-full h-[450px]'
+                    className='rounded-xl w-full h:[250px] md:h-[450px]'
                     src="https://chaicode.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1713504546029%2F2555ea35-7da5-4e44-8138-06c2b53340e9.webp&w=1920&q=75"
                     alt={post.title}
                 // src={service.getFilePreview(post.featuredImage).href}
@@ -65,8 +65,9 @@ const Post = () => {
                     )
                 }
             </div>
+
             <div className='flex justify-center'>
-                <div className='max-w-5xl'>
+                <div className='w-full md:max-w-5xl'>
                     <h1 className='text-2xl font-bold'>{post.title}</h1>
                     <div className='py-6'>
                         {parse(post.content)}

@@ -119,9 +119,9 @@ const AddPost = ({ post }) => {
 
     return (
         <div className='mx-auto max-w-6xl mt-8 p-4'>
-            <form onSubmit={handleSubmit} className='flex'>
+            <form onSubmit={handleSubmit} className='md:flex'>
                 {/* left side part */}
-                <div className='space-y-6 flex-1 pr-4'>
+                <div className='space-y-6 md:flex-1 pr-4'>
                     <Input
                         label="Title :"
                         type='text'
@@ -143,7 +143,7 @@ const AddPost = ({ post }) => {
                 </div>
 
                 {/* right side part */}
-                <div className='flex-2 pl-4 space-y-8'>
+                <div className='md:flex-2 pl-4 my-8 space-y-8'>
                     <Input
                         label="Feature Image :"
                         type='file'

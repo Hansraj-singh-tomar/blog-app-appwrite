@@ -85,13 +85,13 @@ const Home = () => {
 
     if (userData === null) {
         return (
-            <div className="w-full h-screen py-8 bg-white">
+            <div className="w-full h-screen bg-white flex justify-center items-center">
                 <div className="p-2 text-center">
-                    <img src={signInImg} alt="img" className='w-56 h-60 mx-auto' />
+                    <img src={signInImg} alt="img" className=' w-56 h-60 mx-auto' />
                     <Link to={'/login'}>
-                        <h1 className="text-2xl font-medium hover:text-indigo-500 cursor-pointer hover:underline">
-                            Login to read posts
-                        </h1>
+                        <button className="bg-indigo-500 hover:bg-indigo-400 ring-2 shadow-lg ring-slate-200 text-white p-2 rounded-lg text-lg font-medium cursor-pointer">
+                            Login to create post
+                        </button>
                     </Link>
                 </div>
             </div>
@@ -104,7 +104,7 @@ const Home = () => {
                 {/* Right part */}
                 <div className='flex-1'>
                     <div className='mt-24 ml-6 space-y-8'>
-                        <h1 className='text-4xl font-bold'>Welcome to Blog App . . .</h1>
+                        <h1 className='text-4xl font-bold'>Welcome to Blog App. . .</h1>
                         <p className='font-thin text-lg'>At Blog App, we believe in the power of words. Our platform is designed to connect readers with captivating content, curated by passionate writers from around the world. Whether you're seeking inspiration, information, or entertainment, our blog app has something for everyone.</p>
                         <div className='w-full md:w-[50%]'>
                             <Link to={'/all-posts'}>
@@ -115,7 +115,7 @@ const Home = () => {
                 </div>
 
                 {/* left part */}
-                <div className='flex-1'>
+                <div className='flex-1 hidden md:block'>
                     <img src={heroImg} alt="" />
                 </div>
             </div>
@@ -124,10 +124,3 @@ const Home = () => {
 }
 
 export default Home
-
-// why i am worried about her, she can do anything,
-// Do i need to change this place, bcz things are not going to
-// I have to complete the Machine coding round
-// then React and js revision/questions
-// then some basic DSA Questions
-// then do some maditaion to overcome from this situation
