@@ -57,6 +57,8 @@ const AddPost = ({ post }) => {
         return contentRef.current = editor
     }
 
+    // console.log("getting RTE value", contentRef.current);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         let data = {
@@ -150,11 +152,11 @@ const AddPost = ({ post }) => {
                         accept="image/png, image/jpg, image/jpeg, image/gif"
                         ref={imageRef}
                     />
+
                     {post && (
                         <div className="w-full mb-4">
                             <img
-                                // src={appwriteService.getFilePreview(post.featuredImage)}
-                                src='https://chaicode.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1713504546029%2F2555ea35-7da5-4e44-8138-06c2b53340e9.webp&w=1920&q=75'
+                                src={service.getFilePreview(post.featuredImage)}
                                 alt={post.title}
                                 className="rounded-lg w-72 h-48"
                             />

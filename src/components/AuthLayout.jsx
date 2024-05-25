@@ -11,14 +11,14 @@ const AuthLayout = ({ authentication = true, children }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // if (authentication && authStatus !== authentication) {
-        //     navigate("/login")
-        // } else if (!authentication && authStatus !== authentication) {
-        //     navigate("/")
-        // }
         if (authentication && authStatus !== authentication) {
-            navigate("/login");
+            navigate("/login")
+        } else if (!authentication && authStatus !== authentication) {
+            navigate("/")
         }
+        // if (authentication && authStatus !== authentication) {
+        //     navigate("/login");
+        // }
     }, [authentication, navigate, authStatus])
 
     return (

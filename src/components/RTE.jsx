@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useId } from 'react'
 import { Editor } from '@tinymce/tinymce-react';
-import conf from '../conf/conf';
+// import conf from '../conf/conf';
 
 
 // eslint-disable-next-line react/prop-types
@@ -38,4 +38,5 @@ const RTE = ({ label, onInit, defaultValue }) => {
     )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default RTE;

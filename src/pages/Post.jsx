@@ -15,6 +15,7 @@ const Post = () => {
 
     const isAuthor = post && userData ? post.userId === userData.$id : false;
 
+
     useEffect(() => {
         if (slug) {
             service.getPost(slug).then((post) => {
@@ -31,7 +32,6 @@ const Post = () => {
 
 
     const deletePost = () => {
-        console.log("function called");
         service.deletePost(post.$id).then((status) => {
             if (status) {
                 service.deleteFile(post.featuredImage);
@@ -41,14 +41,14 @@ const Post = () => {
     };
 
 
+
     return post ? (
         <div className='mx-auto max-w-6xl mt-2 p-4'>
             <div className='w-full flex justify-center mb-4 relative border rounded-xl p-2'>
                 <img
                     className='rounded-xl w-full h:[250px] md:h-[450px]'
-                    src="https://chaicode.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1713504546029%2F2555ea35-7da5-4e44-8138-06c2b53340e9.webp&w=1920&q=75"
                     alt={post.title}
-                // src={service.getFilePreview(post.featuredImage).href}
+                    src={service.getFilePreview(post.featuredImage).href}
                 />
                 {
                     isAuthor && (

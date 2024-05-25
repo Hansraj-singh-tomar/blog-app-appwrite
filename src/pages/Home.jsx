@@ -98,6 +98,7 @@ const Home = () => {
         )
     }
 
+
     return (
         <div className='bg-white h-screen'>
             <div className='md:flex items-center md:items-center lg:items-start justify-center mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8'>
@@ -108,7 +109,7 @@ const Home = () => {
                         <p className='font-thin text-lg'>At Blog App, we believe in the power of words. Our platform is designed to connect readers with captivating content, curated by passionate writers from around the world. Whether you're seeking inspiration, information, or entertainment, our blog app has something for everyone.</p>
                         <div className='w-full md:w-[50%]'>
                             <Link to={'/all-posts'}>
-                                <Button>Let's jump to stock</Button>
+                                <Button>Lets jump to stock</Button>
                             </Link>
                         </div>
                     </div>
@@ -124,3 +125,4 @@ const Home = () => {
 }
 
 export default Home
+
