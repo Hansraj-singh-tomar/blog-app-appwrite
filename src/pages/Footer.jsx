@@ -26,7 +26,7 @@ const Footer = () => {
                     <div>
                         <h3 className="text-lg font-semibold mb-4">Other Projects</h3>
                         <a href="https://we-tube-sigma.vercel.app/" className='block cursor-pointer hover:text-indigo-600 hover:underline' target='_blank'>YouTube Clone</a>
-                        <a href="https://brand-e-commercee.netlify.app/" className='block cursor-pointer hover:text-indigo-600 hover:underline' target='_blank'>E-Commerce</a>
+                        <a href="https://brand-e-commerce-one.vercel.app/" className='block cursor-pointer hover:text-indigo-600 hover:underline' target='_blank'>E-Commerce</a>
                         <a href="https://sketchbook-orpin.vercel.app/" className='block cursor-pointer hover:text-indigo-600 hover:underline' target='_blank'>Sketchbook</a>
                     </div>
                 </div>
