@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import service from '../appwrite/config';
 import { Link } from 'react-router-dom';
 import Button from './Button';
-
 // eslint-disable-next-line react/prop-types, react-refresh/only-export-components
 const PostCard = ({ $id, title, featuredImage }) => {
     return (

@@ -11,6 +11,7 @@ import service from "../appwrite/config"
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
+
 const AddPost = ({ post }) => {
     // eslint-disable-next-line no-unused-vars
     const [formData, setFormData] = useState({
@@ -54,6 +55,7 @@ const AddPost = ({ post }) => {
     }, [slugTransform])
 
     const onInit = (editor) => {
+        console.log("editor", editor);
         return contentRef.current = editor
     }
 
