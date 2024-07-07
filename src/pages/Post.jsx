@@ -69,7 +69,7 @@ const Post = () => {
             <div className='flex justify-center'>
                 <div className='w-full md:max-w-5xl'>
                     <h1 className='text-2xl font-bold'>{post.title}</h1>
-                    <div className='py-6'>
+                    <div className=''>
                         {parse(post.content)}
                     </div>
                 </div>
