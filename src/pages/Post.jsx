@@ -5,6 +5,7 @@ import service from '../appwrite/config';
 import parse from "html-react-parser"
 import { useSelector } from 'react-redux';
 import Button from '../components/Button';
+import "./post.css";
 
 const Post = () => {
     const [post, setPost] = useState();
@@ -14,7 +15,6 @@ const Post = () => {
     const userData = useSelector((state) => state.auth.userData);
 
     const isAuthor = post && userData ? post.userId === userData.$id : false;
-
 
     useEffect(() => {
         if (slug) {
@@ -30,6 +30,8 @@ const Post = () => {
         }
     }, [navigate, slug]);
 
+    console.log(post?.content);
+
 
     const deletePost = () => {
         service.deletePost(post.$id).then((status) => {
@@ -39,8 +41,6 @@ const Post = () => {
             }
         });
     };
-
-
 
     return post ? (
         <div className='mx-auto max-w-6xl mt-2 p-4'>
@@ -66,10 +66,10 @@ const Post = () => {
                 }
             </div>
 
-            <div className='flex justify-center'>
+            <div className='flex justify-start'>
                 <div className='w-full md:max-w-5xl'>
                     <h1 className='text-2xl font-bold'>{post.title}</h1>
-                    <div className=''>
+                    <div className='prose'>
                         {parse(post.content)}
                     </div>
                 </div>
