@@ -2,19 +2,21 @@
 .prose h1 {
     font-size: 2rem;
     font-weight: bold;
-    color: #333;
+    /* color: #333; */
+    color: #fff;
 }
 
 .prose h2 {
     font-size: 1.5rem;
     margin-top: 1.5rem;
-    color: #555;
+    /* color: #555; */
+    color: #fff;
 }
 
 .prose p {
     margin-bottom: 1rem;
     line-height: 1.6;
-    color: #666;
+    color: #000;
 }
 
 .prose ul {
@@ -52,12 +54,12 @@
 }
 
 .prose code {
-    background-color: #e0e0e0; /* Slightly darker background for inline code */
+    background-color: #e0e0e0; 
     border-radius: 0.3rem; /* Rounded corners */
     padding: 0.2rem 0.4rem; /* Padding around inline code */
     font-size: 0.95rem; /* Font size for inline code */
     font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
-    color: #d63384; /* Color for inline code text */
+    color: #000; 
 }
 
 /* Additional styling for specific syntax elements can be added if using a syntax highlighter */

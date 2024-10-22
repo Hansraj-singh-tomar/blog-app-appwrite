@@ -48,14 +48,12 @@ const Header = () => {
         <div className="min-h-full ">
             {/* header section */}
             <div className="bg-gray-800">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex h-20 items-center justify-between">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex h-24 items-center justify-between">
                     <div className="flex-shrink-0 flex">
-                        <img
-                            className="h-12 w-12"
-                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                            alt="Your Company"
-                        />
-                        <p className='bg-gray-900 ml-4 text-white rounded-md px-3 py-2 text-lg font-medium'>Blog App</p>
+                        <p className='bg-indigo-600 ml-4 text-white rounded-md px-3 py-2 text-lg text-center font-medium'>
+                            Blog App <br />
+                            <span className='text-sm font-thin'>Frontend Mentor</span>
+                        </p>
                     </div>
 
                     {/* This is an hamberger */}
