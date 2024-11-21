@@ -88,7 +88,7 @@ const Home = () => {
         return (
             <div className="w-full h-screen bg-white flex justify-center items-center">
                 <div className="p-2 text-center">
-                    <Image src="/signInImg.png" alt="img" className='w-56 h-60 mx-auto' />
+                    <Image src="/signInImg.png" alt="img" w="400px" h="400px" className='mx-auto' />
                     <Link to={'/login'}>
                         <button className="bg-indigo-500 hover:bg-indigo-400 ring-2 shadow-lg ring-slate-200 text-white p-2 rounded-lg text-lg font-medium cursor-pointer">
                             Login to create post
