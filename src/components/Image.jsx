@@ -2,11 +2,17 @@ import { IKImage } from 'imagekitio-react';
 
 // eslint-disable-next-line react/prop-types
 const Image = ({ src, className, w, h, alt }) => {
-    // console.log("image kit", src); // https://ik.imagekit.io/fvgio8aze/tr:q-20,bl-6/https:/cloud.appwrite.io/v1/storage/buckets/6601ae2286145d644da8/files/66bf226b145edaafffef/preview?project=6601aacdeb6ec5e9021a
+    const urlEndpoint = import.meta.env.VITE_IK_URL_ENDPOINT;
+
+    // Validate the endpoint exists
+    if (!urlEndpoint) {
+        console.error("Missing urlEndpoint: Make sure VITE_IK_URL_ENDPOINT is set in the environment variables.");
+        return <div>Error: Missing urlEndpoint</div>;
+    }
 
     return (
         <IKImage
-            urlEndpoint={import.meta.env.VITE_IK_URL_ENDPOINT}
+            urlEndpoint={urlEndpoint}
             className={className}
             path={src}
             loading="lazy"
