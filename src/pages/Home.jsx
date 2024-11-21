@@ -76,8 +76,9 @@ import React from 'react'
 import Button from '../components/Button'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import heroImg from "../../public/undraw_Blog.png"
-import signInImg from "../../public/signInImg.png"
+// import heroImg from "../../public/HeroImage.png"
+// import signInImg from "../../public/signInImg.png"
+import Image from '../components/Image'
 
 const Home = () => {
 
@@ -87,7 +88,7 @@ const Home = () => {
         return (
             <div className="w-full h-screen bg-white flex justify-center items-center">
                 <div className="p-2 text-center">
-                    <img src={signInImg} alt="img" className=' w-56 h-60 mx-auto' />
+                    <Image src="/signInImg" alt="img" className='w-56 h-60 mx-auto' />
                     <Link to={'/login'}>
                         <button className="bg-indigo-500 hover:bg-indigo-400 ring-2 shadow-lg ring-slate-200 text-white p-2 rounded-lg text-lg font-medium cursor-pointer">
                             Login to create post
@@ -100,13 +101,13 @@ const Home = () => {
 
 
     return (
-        <div className='bg-white h-screen'>
+        <div className='bg-white h-full'>
             <div className='md:flex items-center md:items-center lg:items-start justify-center mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8'>
                 {/* Right part */}
                 <div className='flex-1'>
                     <div className='mt-24 ml-6 space-y-8'>
                         <h1 className='text-4xl font-bold'>Welcome to Blog App. . .</h1>
-                        <p className='font-thin text-lg'>At Blog App, we believe in the power of words. Our platform is designed to connect readers with captivating content, curated by passionate writers from around the world. Whether you're seeking inspiration, information, or entertainment, our blog app has something for everyone.</p>
+                        <p className='font-thin text-lg'>At Blog App, we believe in the power of words. Our platform is designed to connect readers with captivating content, curated by passionate writers from around the world. Whether you are seeking inspiration, information, or entertainment, our blog app has something for everyone.</p>
                         <div className='w-full md:w-[50%]'>
                             <Link to={'/all-posts'}>
                                 <Button>Lets jump to stock</Button>
@@ -117,7 +118,7 @@ const Home = () => {
 
                 {/* left part */}
                 <div className='flex-1 hidden md:block'>
-                    <img src={heroImg} alt="" />
+                    <Image src="/HeroImage.png" alt="heroImg" className='w-full h-[60%]' />
                 </div>
             </div>
         </div>

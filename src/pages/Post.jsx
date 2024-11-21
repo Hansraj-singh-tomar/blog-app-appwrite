@@ -48,7 +48,7 @@ const Post = () => {
                 <img
                     className='rounded-xl w-full h:[250px] md:h-[450px]'
                     alt={post.title}
-                    src={service.getFilePreview(post.featuredImage).href}
+                    src={`${service.getFilePreview(post.featuredImage).href}&quality=75`}
                 />
                 {
                     isAuthor && (
