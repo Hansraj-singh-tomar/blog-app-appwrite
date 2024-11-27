@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react'
 import PostCard from '../components/PostCard'
-import { ShimmerSimpleGallery } from "react-shimmer-effects";
+import { ShimmerPostList } from "react-shimmer-effects";
 
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPosts } from '../store/postSlice';
@@ -32,7 +32,7 @@ const AllPost = () => {
     if (posts?.length === 0) {
         return (
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
-                <ShimmerSimpleGallery card imageHeight={300} caption />
+                <ShimmerPostList postStyle="STYLE_FOUR" col={3} row={2} gap={30} />
             </div>
         )
     }
