@@ -1,0 +1,148 @@
+/* General styling for the blog content */
+.prose {
+    font-family: 'Georgia', serif; /* Elegant font for better readability */
+    color: #1a1a1a; /* Slightly softer black for less strain */
+    line-height: 1.8; /* Comfortable line height */
+}
+
+/* Headings */
+.prose h1, .prose h2, .prose h3 {
+    font-family: 'Merriweather', serif; /* Font with good weight and contrast */
+    color: #2c3e50; /* Dark blue-grey for a professional look */
+    margin-bottom: 1rem; /* Space below headings */
+    line-height: 1.4; /* Compact heading lines */
+}
+
+.prose h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    border-bottom: 2px solid #f1c40f; /* Underline for emphasis */
+    padding-bottom: 0.3rem;
+}
+
+.prose h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e74c3c; /* Eye-catching red for subheadings */
+    margin-top: 2rem;
+}
+
+.prose h3 {
+    font-size: 1.75rem;
+    color: #3498db; /* Calming blue for third-level headings */
+    margin-top: 1.5rem;
+}
+
+/* Paragraphs */
+.prose p {
+    font-size: 1.1rem; /* Slightly larger for easier reading */
+    margin-bottom: 1.2rem;
+    color: #4d4d4d; /* Neutral grey for less harshness */
+}
+
+/* Lists */
+.prose ul, .prose ol {
+    padding-left: 1.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.prose ul li, .prose ol li {
+    margin-bottom: 0.8rem;
+    color: #2c3e50; /* Consistent color with headings */
+    line-height: 1.6;
+}
+
+.prose ul li::marker {
+    color: #9b59b6; /* Purple bullet points for a stylish touch */
+    font-size: 1.2rem;
+}
+
+.prose ol li {
+    counter-increment: step-counter;
+}
+
+.prose ol li::marker {
+    color: #16a085; /* Green numbering for contrast */
+    font-weight: bold;
+}
+
+/* Links */
+.prose a {
+    color: #e67e22; /* Vibrant orange for links */
+    text-decoration: none;
+    border-bottom: 1px solid #e67e22; /* Subtle underline */
+    transition: all 0.3s;
+}
+
+.prose a:hover {
+    color: #d35400; /* Darker orange on hover */
+    border-color: #d35400;
+}
+
+/* Images */
+.prose img {
+    max-width: 100%;
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 1rem 0; /* Space around images */
+}
+
+/* Code blocks */
+.prose pre {
+    background-color: #2d2d2d; /* Dark theme for code blocks */
+    color: #ecf0f1; /* Light text for contrast */
+    border-radius: 0.5rem;
+    padding: 1.2rem;
+    overflow-x: auto;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-family: 'Fira Code', monospace; /* Stylish monospace font */
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Inline code */
+.prose code {
+    background-color: #ecf0f1; /* Light grey for inline code */
+    color: #2c3e50; /* Dark text for inline code */
+    border-radius: 0.3rem;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.95rem;
+    font-family: 'Fira Code', monospace;
+}
+
+/* Quotes */
+.prose blockquote {
+    border-left: 4px solid #95a5a6; /* Grey border for quotes */
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: #7f8c8d; /* Muted grey text */
+    font-style: italic;
+}
+
+/* Tables */
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.prose table th, .prose table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+}
+
+.prose table th {
+    background-color: #f7f7f7;
+    color: #34495e;
+    font-weight: bold;
+}
+
+/* Horizontal rules */
+.prose hr {
+    border: none;
+    border-top: 2px solid #bdc3c7;
+    margin: 2rem 0;
+}

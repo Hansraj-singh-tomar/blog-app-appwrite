@@ -1,12 +1,20 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import service from '../appwrite/config';
-import parse from "html-react-parser"
-import { useSelector } from 'react-redux';
+
 import Button from '../components/Button';
-import "./post.css";
+
+import service from '../appwrite/config';
+
+import parse from "html-react-parser"
+
+import { useSelector } from 'react-redux';
+
+
 import { ShimmerPostDetails } from 'react-shimmer-effects';
+
+// import "./post.css";
+import "./postTwo.css";
 
 const Post = () => {
     const [post, setPost] = useState();
