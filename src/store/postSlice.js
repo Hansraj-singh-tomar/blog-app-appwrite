@@ -3,8 +3,24 @@ import service from "../appwrite/config";
 
 export const fetchPosts = createAsyncThunk('fetchPosts', async () => {
     try {
-        const posts = await service.getPosts();
-        return posts.documents;
+        let cursor = null;
+        const limit = 15;
+        let hasMore = true;
+        let allPosts = [];
+
+        while (hasMore) {
+            const posts = await service.getPosts(cursor, limit);
+            console.log("posts from postSlice CMP", posts);
+
+            if (posts && posts.documents.length > 0) {
+                allPosts = [...allPosts, ...posts.documents];
+
+                cursor = posts.documents[posts.documents.length - 1].$id;
+            } else {
+                hasMore = false;
+            }
+        }
+        return allPosts;
     } catch (error) {
         return error
     }

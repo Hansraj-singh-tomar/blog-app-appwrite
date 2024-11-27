@@ -79,12 +79,21 @@ export class Service {
         }
     }
 
-    async getPosts() {
+    async getPosts(cursor = null, limit = 15) {
         try {
+            const queries = [
+                Query.equal("status", "active"),
+                Query.limit(limit),
+            ]
+
+            if (cursor) {
+                queries.push(Query.cursorAfter(cursor)) // fetch after this document
+            }
+
             return await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                [Query.equal("status", "active")]
+                queries
             )
         } catch (error) {
             console.log("Appwrite service :: getPosts :: error", error);

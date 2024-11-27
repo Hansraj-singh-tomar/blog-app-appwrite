@@ -9,8 +9,10 @@ import { fetchPosts } from '../store/postSlice';
 
 const AllPost = () => {
     const dispatch = useDispatch();
+
     const { posts, error } = useSelector((state) => state.postsData)
     const userData = useSelector((state) => state.auth.userData);
+
     useEffect(() => {
         if (userData !== null) {
             dispatch(fetchPosts())

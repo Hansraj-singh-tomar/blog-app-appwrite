@@ -6,6 +6,7 @@ import parse from "html-react-parser"
 import { useSelector } from 'react-redux';
 import Button from '../components/Button';
 import "./post.css";
+import { ShimmerPostDetails } from 'react-shimmer-effects';
 
 const Post = () => {
     const [post, setPost] = useState();
@@ -30,7 +31,15 @@ const Post = () => {
         }
     }, [navigate, slug]);
 
-    console.log(post?.content);
+    // console.log(post?.content);
+
+    if (!post) {
+        return (
+            <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
+                <ShimmerPostDetails card cta variant="SIMPLE" />
+            </div>
+        )
+    }
 
 
     const deletePost = () => {
@@ -42,7 +51,7 @@ const Post = () => {
         });
     };
 
-    return post ? (
+    return (
         <div className='mx-auto max-w-6xl mt-2 p-4'>
             <div className='w-full flex justify-center mb-4 relative border rounded-xl p-2'>
                 <img
@@ -75,7 +84,7 @@ const Post = () => {
                 </div>
             </div>
         </div>
-    ) : null;
+    );
 }
 
 export default Post
