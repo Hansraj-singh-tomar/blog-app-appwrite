@@ -33,6 +33,12 @@
     margin-top: 1.5rem;
 }
 
+.prose h4{
+    font-size: 1.5rem;
+    color: #9b59b6; /* Purple for fourth-level headings */
+    margin-top: 1.5rem;
+}
+
 /* Paragraphs */
 .prose p {
     font-size: 1.1rem; /* Slightly larger for easier reading */
